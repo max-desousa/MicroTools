@@ -1,0 +1,10 @@
+add_executable(Executable_ST7565 snoopy.c)
+
+#set_target_properties(Executable_ST7565 PROPERTIES OUTPUT_NAME snoopy)
+
+target_link_libraries(Executable_ST7565 pico_stdlib)
+target_link_libraries(Executable_ST7565 hardware_spi)
+target_link_libraries(Executable_ST7565 hardware_pwm)
+target_link_libraries(Executable_ST7565 lib_DisplayST7565)
+
+pico_add_extra_outputs(Executable_ST7565)
