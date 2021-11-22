@@ -1,1 +1,0 @@
-add_subdirectory(${TOP_LEVEL_PATH}/Display build)

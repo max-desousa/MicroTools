@@ -1,21 +1,21 @@
-#ifndef DISPLAY_ST7565
+#ifndef PROJECT_TEMP_ST7565_H
+#define PROJECT_TEMP_ST7565_H
 
-#define DISPLAY_ST7565
 #include "pico/stdlib.h"
 #include "hardware/pwm.h"
 #include "hardware/spi.h"
 
 struct ST7565 {
-  int pinRed;
-  int pinGreen;
-  int pinBlue;
-  int pinCLK;
-  int pinMOSI;
-  int pinCS;
-  spi_inst_t *spiInstance;
-  int pinA0;
-  int pinRst;
-  int firstLineCorrector;
+    int pinRed;
+    int pinGreen;
+    int pinBlue;
+    int pinCLK;
+    int pinMOSI;
+    int pinCS;
+    spi_inst_t *spiInstance;
+    int pinA0;
+    int pinRst;
+    int firstLineCorrector;
 };
 
 void __pinAssignments__(struct ST7565 *_display);
@@ -28,4 +28,4 @@ void ST7565_WritePixels(struct ST7565 *_display, uint8_t _page, uint8_t _column,
 
 void __writeAllToZero__(struct ST7565 *_display);
 
-#endif
+#endif //PROJECT_TEMP_ST7565_H

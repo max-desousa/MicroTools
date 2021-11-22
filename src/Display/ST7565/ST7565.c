@@ -1,5 +1,4 @@
-#include "ST7565.h"
-
+#include <Display/ST7565.h>
 
 void ST7565_Init(struct ST7565 *_display){
 
@@ -144,7 +143,7 @@ void __writeAllToZero__(struct ST7565 *_display) {
     spi_write_blocking(_display->spiInstance, zerosArray, 132);
     gpio_put(_display->pinA0, false);
 
-    
+
     spi_write_blocking(_display->spiInstance, &pageTwo, 1);
     spi_write_blocking(_display->spiInstance, &formattedColumnMSB, 1);
     spi_write_blocking(_display->spiInstance, &formattedColumnLSB, 1);
@@ -152,7 +151,7 @@ void __writeAllToZero__(struct ST7565 *_display) {
     spi_write_blocking(_display->spiInstance, zerosArray, 132);
     gpio_put(_display->pinA0, false);
 
-    
+
     spi_write_blocking(_display->spiInstance, &pageThree, 1);
     spi_write_blocking(_display->spiInstance, &formattedColumnMSB, 1);
     spi_write_blocking(_display->spiInstance, &formattedColumnLSB, 1);
@@ -160,7 +159,7 @@ void __writeAllToZero__(struct ST7565 *_display) {
     spi_write_blocking(_display->spiInstance, zerosArray, 132);
     gpio_put(_display->pinA0, false);
 
-    
+
     spi_write_blocking(_display->spiInstance, &pageFour, 1);
     spi_write_blocking(_display->spiInstance, &formattedColumnMSB, 1);
     spi_write_blocking(_display->spiInstance, &formattedColumnLSB, 1);
@@ -168,7 +167,7 @@ void __writeAllToZero__(struct ST7565 *_display) {
     spi_write_blocking(_display->spiInstance, zerosArray, 132);
     gpio_put(_display->pinA0, false);
 
-    
+
     spi_write_blocking(_display->spiInstance, &pageFive, 1);
     spi_write_blocking(_display->spiInstance, &formattedColumnMSB, 1);
     spi_write_blocking(_display->spiInstance, &formattedColumnLSB, 1);
@@ -176,7 +175,7 @@ void __writeAllToZero__(struct ST7565 *_display) {
     spi_write_blocking(_display->spiInstance, zerosArray, 132);
     gpio_put(_display->pinA0, false);
 
-    
+
     spi_write_blocking(_display->spiInstance, &pageSix, 1);
     spi_write_blocking(_display->spiInstance, &formattedColumnMSB, 1);
     spi_write_blocking(_display->spiInstance, &formattedColumnLSB, 1);
@@ -184,14 +183,14 @@ void __writeAllToZero__(struct ST7565 *_display) {
     spi_write_blocking(_display->spiInstance, zerosArray, 132);
     gpio_put(_display->pinA0, false);
 
-    
+
     spi_write_blocking(_display->spiInstance, &pageSeven, 1);
     spi_write_blocking(_display->spiInstance, &formattedColumnMSB, 1);
     spi_write_blocking(_display->spiInstance, &formattedColumnLSB, 1);
     gpio_put(_display->pinA0, true);
     spi_write_blocking(_display->spiInstance, zerosArray, 132);
     gpio_put(_display->pinA0, false);
-    
+
     spi_write_blocking(_display->spiInstance, &pageEight, 1);
     spi_write_blocking(_display->spiInstance, &formattedColumnMSB, 1);
     spi_write_blocking(_display->spiInstance, &formattedColumnLSB, 1);
@@ -205,7 +204,7 @@ void __writeAllToZero__(struct ST7565 *_display) {
     gpio_put(_display->pinA0, true);
     spi_write_blocking(_display->spiInstance, zerosArray, 132);
     gpio_put(_display->pinA0, false);
-    
+
     spi_write_blocking(_display->spiInstance, &displayOn, 1);
 
     gpio_put(_display->pinCS, true);

@@ -1,6 +1,0 @@
-add_library(lib_DisplayST7565 ST7565.c)
-target_link_libraries(lib_DisplayST7565 pico_stdlib)
-target_link_libraries(lib_DisplayST7565 hardware_pwm)
-target_link_libraries(lib_DisplayST7565 hardware_spi)
-
-list(APPEND EXTRA_LIBS lib_DisplayST7565)
