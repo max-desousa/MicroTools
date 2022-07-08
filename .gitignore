@@ -1,2 +1,3 @@
-cmake-buld-debug/.
-.idea/
+cmake-buld-debug/**
+build/**
+.idea/**
