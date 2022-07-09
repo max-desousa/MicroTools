@@ -1,0 +1,7 @@
+add_library(MICRO_TOOLS_PICO_I2C INTERFACE)
+target_include_directories(MICRO_TOOLS_PICO_I2C INTERFACE ${CMAKE_CURRENT_LIST_DIR}/include)
+target_sources(MICRO_TOOLS_PICO_I2C INTERFACE ${CMAKE_CURRENT_LIST_DIR}/i2c.c)
+target_link_libraries(MICRO_TOOLS_PICO_I2C INTERFACE 
+  hardware_i2c
+  hardware_gpio
+  pico_stdlib)
