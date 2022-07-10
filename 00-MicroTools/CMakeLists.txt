@@ -9,6 +9,7 @@ foreach( _microBoard ${MICRO_TOOLS_SUPPORTED_MICROS})
   if(MICRO_TOOLS_INCLUDE_${_microBoard})
     message("Adding MicroTools microcontroller support for: ${_microBoard}")
     add_subdirectory(${_microBoard})
+    set(NO_MICRO_TOOLS_INCLUDED OFF)
   endif()
 endforeach()
 

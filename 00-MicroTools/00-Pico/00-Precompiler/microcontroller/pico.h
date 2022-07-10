@@ -1,0 +1,5 @@
+#ifndef MICROCONTROLLER_RPI_PICO
+
+#define MICROCONTROLLER_RPI_PICO
+
+#endif

@@ -1,4 +1,5 @@
 add_subdirectory(00-MicroTools)
+add_subdirectory(01-Modules)
 
 if(DEFINED MICRO_TOOLS_EXAMPLES)
   message("Adding the MicroTools examples...")
