@@ -7,6 +7,22 @@
 #include "hardware/gpio.h"
 #include "pico/stdlib.h"
 
+typedef struct i2c_struct
+  {
+  uint8_t dataPin;
+  uint8_t clockPin;
+  uint32_t baudRate;
+  } i2c_struct;
+
+typedef struct spi_struct
+  {
+  uint8_t misoPin;
+  uint8_t mosiPin;
+  uint8_t chipSelectPin;
+  uint32_t baudRate;
+  } spi_struct;
+
+
 //bool I2c0BusInUse = false;
 //bool I2c1BusInUse = false;
 

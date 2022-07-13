@@ -1,3 +1,5 @@
-add_library(micro_tools_gps_zedf9p INTERFACE)
-target_include_directories(micro_tools_gps_zedf9p INTERFACE ${CMAKE_CURRENT_LIST_DIR}/include)
-target_sources(micro_tools_gps_zedf9p INTERFACE ${CMAKE_CURRENT_LIST_DIR}/zedf9p.c)
+add_library(MICRO_TOOLS_GPS_ZEDF9P INTERFACE)
+target_include_directories(MICRO_TOOLS_GPS_ZEDF9P INTERFACE ${CMAKE_CURRENT_LIST_DIR}/include)
+target_sources(MICRO_TOOLS_GPS_ZEDF9P INTERFACE ${CMAKE_CURRENT_LIST_DIR}/zedf9p.c)
+target_link_libraries(MICRO_TOOLS_GPS_ZEDF9P INTERFACE
+  MICRO_TOOLS_PICO_I2C)
