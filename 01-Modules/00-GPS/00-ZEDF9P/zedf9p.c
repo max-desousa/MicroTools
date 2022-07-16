@@ -51,4 +51,16 @@ void SetUbxBaseSettings()
 
 void SetUbxZedf9pSetting(T_ZF9P_e_Setting _setting, uint32_t _value)
   {
+  T_ZF9P_s_UbxMessage ubxMessage;
+  ubxMessage.preambleCharacter1 = 0xB5;
+  ubxMessage.preambleCharacter2 = 0x62;
+  //ubxMessage.messageClass = ;
+  }
+
+void SendUbxMessage(T_ZF9P_e_UbxMessageClasses _messageClass, T_ZF9P_e_MessageId _messageId, uint8_t _payload, uint16_t _payloadLength)
+  {
+  T_ZF9P_s_UbxMessage ubxMessage;
+  ubxMessage.preambleCharacter1 = 0xB5;
+  ubxMessage.preambleCharacter2 = 0x62;
+  ubxMessage.messageClass = _messageClass;
   }
