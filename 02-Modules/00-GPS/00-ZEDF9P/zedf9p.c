@@ -98,6 +98,7 @@ void SendUbxMessage(T_ZF9P_s_ModuleConfig *_module, uint16_t _ubxMessage, uint8_
   ubxFrame[++byte] = checksumB;
 
   /* Here we send the message */
+  SendI2cMessage(_module, ubxFrame, _length);
 
   free(ubxFrame);
   }
