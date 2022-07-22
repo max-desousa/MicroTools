@@ -1,5 +1,16 @@
 #include "gps/zedf9p.h"
 
+void InitializeZedf9pObject(T_ZF9P_s_ModuleConfig *_module)
+  {
+  _module->sdaPin = 0xFF;
+  _module->clockPin = 0xFF;
+  _module->misoPin = 0xFF;
+  _module->mosiPin = 0xFF;
+  _module->chipSelectPin = 0xFF;
+  _module->baudRate = 0xFFFFFFFF;
+  _module->commsMethod = uninitialized;
+  }
+
 bool SimpleSetupZedf9p(T_ZF9P_s_ModuleConfig *_moduleConfig)
   {
   bool retVal;
@@ -45,7 +56,7 @@ void SetUbxBaseSettings()
   SetUbxZedf9pSetting(UBX_RTCM_1074, 1);
   SetUbxZedf9pSetting(UBX_RTCM_1084, 1);
   SetUbxZedf9pSetting(UBX_RTCM_1094, 1);
-  SetUbxZedf9pSetting(UBX_RTCM_11124, 1);
+  SetUbxZedf9pSetting(UBX_RTCM_1124, 1);
   SetUbxZedf9pSetting(UBX_RTCM_1230, 10);
   }
 
@@ -57,10 +68,36 @@ void SetUbxZedf9pSetting(T_ZF9P_e_Setting _setting, uint32_t _value)
   //ubxMessage.messageClass = ;
   }
 
-void SendUbxMessage(T_ZF9P_e_UbxMessageClasses _messageClass, T_ZF9P_e_MessageId _messageId, uint8_t _payload, uint16_t _payloadLength)
+void SendUbxMessage(T_ZF9P_s_ModuleConfig *_module, uint16_t _ubxMessage, uint8_t *_payload, uint16_t _length)
   {
-  T_ZF9P_s_UbxMessage ubxMessage;
-  ubxMessage.preambleCharacter1 = 0xB5;
-  ubxMessage.preambleCharacter2 = 0x62;
-  ubxMessage.messageClass = _messageClass;
+  uint8_t* ubxFrame = malloc(sizeof(uint8_t) * (_length + 8));
+  uint8_t byte = 0;
+  uint8_t checksumA = 0;
+  uint8_t checksumB = 0;
+  ubxFrame[byte] = 0xB5;
+  ubxFrame[++byte] = 0x62;
+  ubxFrame[++byte] = (_ubxMessage & 0xFF00) >> 8;
+  checksumA += ubxFrame[byte];
+  checksumB += checksumA;
+  ubxFrame[++byte] = (_ubxMessage & 0x00FF);
+  checksumA += ubxFrame[byte];
+  checksumB += checksumA;
+  ubxFrame[++byte] = (_length & 0x00FF);
+  checksumA += ubxFrame[byte];
+  checksumB += checksumA;
+  ubxFrame[++byte] = (_length & 0xFF00) >> 8;
+  checksumA += ubxFrame[byte];
+  checksumB += checksumA;
+  for (int i = 0; i < _length; i++)
+    {
+    ubxFrame[++byte] = _payload[i];
+    checksumA += ubxFrame[byte];
+    checksumB += checksumA;
+    }
+  ubxFrame[++byte] = checksumA;
+  ubxFrame[++byte] = checksumB;
+
+  /* Here we send the message */
+
+  free(ubxFrame);
   }

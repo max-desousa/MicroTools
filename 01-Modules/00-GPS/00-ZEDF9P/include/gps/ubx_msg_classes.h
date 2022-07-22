@@ -1,0 +1,12 @@
+#define UBX_MSG_CLS_ACK 0x05
+#define UBX_MSG_CLS_CFG 0x06
+#define UBX_MSG_CLS_INF 0x04
+#define UBX_MSG_CLS_LOG 0x21
+#define UBX_MSG_CLS_MGA 0x13
+#define UBX_MSG_CLS_MON 0x0A
+#define UBX_MSG_CLS_NAV 0x01
+#define UBX_MSG_CLS_NAV2 0x29
+#define UBX_MSG_CLS_RXM 0x02
+#define UBX_MSG_CLS_SEC 0x27
+#define UBX_MSG_CLS_TIM 0x0D
+#define UBX_MSG_CLS_UPD 0x09
