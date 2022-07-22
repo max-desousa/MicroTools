@@ -1,9 +1,10 @@
-add_subdirectory(00-MicroTools)
-add_subdirectory(01-Modules)
+add_subdirectory(00-MicroControllers)
+#add_subdirectory(01-GenericFunc)
+add_subdirectory(02-Modules)
 
 if(DEFINED MICRO_TOOLS_EXAMPLES)
   message("Adding the MicroTools examples...")
-  add_subdirectory(02-Examples)
+  add_subdirectory(03-Examples)
 else()
   message("Micro Tools examples have been avoided - please set option \"MICRO_TOOLS_EXAMPLES\" to ON to build")
 endif()
